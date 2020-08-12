@@ -239,7 +239,4 @@
 
 
 
-(defun test-query ()
-  (princ (query-food-data "cashew") xbuff)
-  (switch-to-buffer xbuff))
 
