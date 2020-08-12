@@ -31,6 +31,7 @@
 
 
 (defun org-lookup-food ()
+  "Attempts to download the nutritional information for a food and add it to the food org file"
   (interactive
    (let* ((query (read-string "What food do you want to add?") )
            (foods (gethash "foods"  (query-food-data query)))
@@ -60,6 +61,7 @@
 
 
 (defun org-write-food (name calories carbs fat protein)
+  "Adds a food and its information to the food org file"
   (interactive "sEnter food name:\nnEnter calores:\nnEnter carbs:\nnEnter fat:\nnEnter protein:")
   (with-current-buffer (find-file-noselect food-org-file)
     (let* ((ast (org-element-parse-buffer))
@@ -105,6 +107,7 @@
 
 
 (defun org-log-food ()
+  "Logs a food entry in the food org file"
   (interactive
    (with-current-buffer (find-file-noselect food-org-file)
      (let* ((ast (org-element-parse-buffer))
