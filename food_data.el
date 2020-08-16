@@ -53,7 +53,7 @@
             ( protein (/ (funcall get-value "Protein") 100))
             )
        (org-write-food name calories carbs fat protein)
-       () ;; dont know why I get an error without this
+       () 
        )
      )
    )
@@ -210,6 +210,9 @@
                 (insert
                  (format "| # | %s | %s | %f | | | | | | | | | " time-stamp selection ammount)
                  )
+                (org-table-recalculate t)
+                (message "added %dg of %s" ammount selection)
+                () 
                 )
               )
             )
